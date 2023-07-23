@@ -16,6 +16,7 @@ namespace RedPanda.Project
             {
                 block.Export<UserService>().As<IUserService>().Lifestyle.Singleton();
                 block.Export<PromoService>().As<IPromoService>().Lifestyle.Singleton();
+                block.Export<PromoUIService>().As<IPromoUIService>().Lifestyle.Singleton();
                 block.Export<UIService>().As<IUIService>().Lifestyle.Singleton();
             });
 
