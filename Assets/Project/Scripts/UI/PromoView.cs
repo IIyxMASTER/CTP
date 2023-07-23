@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using RedPanda.Project.Data;
 using RedPanda.Project.Services.Interfaces;
@@ -31,7 +32,8 @@ namespace RedPanda.Project.UI
                 { PromoType.Special, specialRoot },
                 { PromoType.InApp, inAppRoot }
             };
-            foreach (var promoModel in _promoService.GetPromos())
+            var promos = _promoService.GetPromos().OrderByDescending(promo => promo.Rarity);
+            foreach (var promoModel in promos)
             {
                 _promoUIService.CreateItem(promoModel, rootsDictionary[promoModel.Type]);
             }
