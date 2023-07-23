@@ -27,7 +27,10 @@ namespace RedPanda.Project.Services.UI
         }
         public void TryBuy()
         {
-            _userService.Buy(_model.Cost);
+            if (_userService.Buy(_model.Cost))
+            {
+                Debug.Log($"[InApp]: Successfully purchased: {_model.Title}");
+            }
             
         }
     }

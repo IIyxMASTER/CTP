@@ -8,7 +8,7 @@ namespace RedPanda.Project.Services.Interfaces
         void ReduceCurrency(int delta);
         bool HasCurrency(int amount);
         int Currency { get; }
-        void Buy(int amount);
+        bool Buy(int amount);
         Action OnCurrencyChanged { get; set; }
     }
 }

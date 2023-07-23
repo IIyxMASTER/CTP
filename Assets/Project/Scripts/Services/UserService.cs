@@ -8,15 +8,17 @@ namespace RedPanda.Project.Services
     {
         public int Currency { get; private set; }
 
-        public void Buy(int amount)
+        public bool Buy(int amount)
         {
             if (HasCurrency(amount))
             {
                 ReduceCurrency(amount);
+                return true;
             }
             else
             {
-                Debug.LogError("You don't have enough gems");
+                Debug.LogError("[InApp]: You don't have enough gems");
+                return false;
             }
         }
 
